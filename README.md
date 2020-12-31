@@ -1,8 +1,8 @@
-*** Graph Exercises ***
+# Graph Exercises #
 
 These are simple graph exercises.
 
-** Use venv, unittest and eat your vegetables
+## Use venv, unittest and eat your vegetables ##
 
 * Create a virtual environment with venv
 
@@ -16,6 +16,6 @@ First enable your virtual environment. Then you can run unittests by calling the
 
 * program and have fun
 
-** Depth First Search **
+## Depth First Search ##
 
 Starting with the simple depth first search
