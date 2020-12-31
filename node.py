@@ -4,8 +4,9 @@ class Node:
         self.name = name
 
     def addChild(self, name):
-        self.children.append(Node(name))
-        return self
+        child_node = Node(name)
+        self.children.append(child_node)
+        return child_node
 
     def depthFirstSearch(self):
         return []
