@@ -1,5 +1,6 @@
 import unittest
 from node import Node
+from tests.graph_info import simple_graph_info
 
 def loadGraphRecursive(node, info):
     node_info = next(filter(lambda current_node_info: current_node_info['id'] == node.name, info['nodes']))
@@ -21,14 +22,6 @@ class TestDepthFirstSearch(unittest.TestCase):
         self.assertEqual(trivial_graph.depthFirstSearch(), [])
 
     def test_simple_graph(self):
-        simple_graph_info = {
-            "nodes": [
-                {"children": ["B", "C"], "id": "A", "value": "A"},
-                {"children": [], "id": "B", "value": "B"},
-                {"children": [], "id": "C", "value": "C"}
-              ],
-              "startNode": "A"
-            }
         simple_graph = loadGraph(simple_graph_info)
         self.assertEqual(simple_graph.depthFirstSearch(), ['A', 'B', 'C'])
 
