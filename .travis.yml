@@ -1,3 +1,12 @@
- language: python
-  script:
-    - python -m unittest
+os: linux
+dist: bionic
+
+language: python
+python:
+  - '3.7'
+
+cache:
+  pip: true
+
+script:
+  - python -m unittest
