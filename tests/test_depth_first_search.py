@@ -19,7 +19,7 @@ class TestDepthFirstSearch(unittest.TestCase):
 
     def test_trivial_case(self):
         trivial_graph = Node('trivial')
-        self.assertEqual(trivial_graph.depthFirstSearch(), [])
+        self.assertEqual(trivial_graph.depthFirstSearch(), ['trivial'])
 
     def test_simple_graph(self):
         simple_graph = loadGraph(simple_graph_info)

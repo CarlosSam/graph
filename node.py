@@ -9,5 +9,11 @@ class Node:
         return child_node
 
     def depthFirstSearch(self):
-        return []
+        return self.depthFirstSearchIterating([])
+
+    def depthFirstSearchIterating(self, array):
+        array.append(self.name)
+        for child in self.children:
+            child.depthFirstSearchIterating(array)
+        return array
 
