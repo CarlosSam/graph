@@ -4,16 +4,7 @@ logger = logging.getLogger(__name__)
 logger.addHandler(logging.StreamHandler())
 logger.setLevel(logging.DEBUG)
 
-def breadthFirstSearchIterate(roots, result):
-    logger.debug('roots: %s, result: %s', [node.name for node in roots], [n for n in result])
-    if len(roots) == 0:
-        return result
-    new_roots = []
-    for node in roots:
-        result.append(node.name)
-        for child in node.children:
-            new_roots.append(child)
-    return breadthFirstSearchIterate(new_roots, result)
+breadthFirstQueue = []
 
 class Node:
     def __init__(self, name):
@@ -35,6 +26,14 @@ class Node:
             child.depthFirstSearchIterating(array)
         return array
 
+    def breadthFirstSearchIterate(self, result):
+        result.append(self.name)
+        for child in self.children:
+            breadthFirstQueue.append(child)
+        if (len(breadthFirstQueue) == 0):
+            return result
+        return breadthFirstQueue.pop(0).breadthFirstSearchIterate(result)
+
     def breadthFirstSearch(self):
-        return breadthFirstSearchIterate([self], [])
+        return self.breadthFirstSearchIterate([])
 
