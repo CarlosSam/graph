@@ -1,19 +1,7 @@
 import unittest
 from node import Node
+from tests.utils import loadGraph
 from tests.graph_info import simple_graph_info, graph1_info, graph2_info, graph3_info, graph4_info, graph5_info
-
-def loadGraphRecursive(node, info):
-    node_info = next(filter(lambda current_node_info: current_node_info['id'] == node.name, info['nodes']))
-    for child_name in node_info['children']:
-        child_node = node.addChild(child_name)
-        loadGraphRecursive(child_node, info)
-    return node
-
-def loadGraph(info):
-    root = Node(info['startNode'])
-    loadGraphRecursive(root, info)
-    return root
-
 
 class TestDepthFirstSearch(unittest.TestCase):
 
